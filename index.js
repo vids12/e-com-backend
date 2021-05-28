@@ -12,7 +12,7 @@ const wishlistRouter = require('./router/wishlist.router.js')
 connectDB();
 
 app.use("/products", productRouter);
-app.use("/cartitems",cartRouter);
+app.use("/cart",cartRouter);
 app.use("/wishlist",wishlistRouter);
 
 
