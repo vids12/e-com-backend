@@ -8,7 +8,7 @@ router.use(cors())
 router.route('/')
 .get(async (req,res)=>{
   const products = await Dataproduct.find({});
-  res.json({products, success:true});
+  res.json({success:true,products});
 })
 
 
@@ -16,7 +16,7 @@ router.route('/:id')
 .get(async (req,res)=>{
   const { id } = req.params;
   const product = await Dataproduct.findById(id);
-  res.json({product,success:true})
+  res.json({success:true,product})
 })
 
 

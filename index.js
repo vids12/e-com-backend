@@ -1,17 +1,19 @@
 const express = require('express');
 const bodyparser = require('body-parser');
-const { errorHandler } = require("./middlewares/errorHandler.js");
-const { notFoundHandler } = require("./middlewares/404Handler.js");
-const { connectDB }= require("./database/db.js")
+const { errorHandler } = require('./middlewares/errorHandler.js');
+const { notFoundHandler } = require('./middlewares/404Handler.js');
+const { connectDB }= require('./database/db.js')
 const app = express();
 app.use(bodyparser.json());
-const productRouter = require("./router/products.router.js");
-// const cartRouter = require("./router/cart.router");
+const productRouter = require('./router/products.router.js');
+const cartRouter = require('./router/cart.router');
+const wishlistRouter = require('./router/wishlist.router.js')
 
 connectDB();
 
 app.use("/products", productRouter);
-// app.use("/cart",cartRouter);
+app.use("/cartitems",cartRouter);
+app.use("/wishlist",wishlistRouter);
 
 
 
